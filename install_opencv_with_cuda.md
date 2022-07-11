@@ -5,7 +5,25 @@ First of all install update and upgrade your system:
         $ sudo apt update
         $ sudo apt upgrade
    
-    
+
+* NVIDIA CUDA
+
+https://developer.nvidia.com/cuda-downloads
+
+check https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+
+export PATH=/usr/local/cuda-11.7/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+                         
+* NVIDIA CUDNN
+
+https://developer.nvidia.com/rdp/cudnn-download
+
+* NVIDIA Video Codec SDK
+
+https://developer.nvidia.com/nvidia-video-codec-sdk/download
+
 Then, install required libraries:
 
 * Generic tools:
@@ -58,16 +76,6 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
     $ unzip opencv.zip
     $ unzip opencv_contrib.zip
     
-    $ echo "Create a virtual environtment for the python binding module (OPTIONAL)"
-    $ sudo pip install virtualenv virtualenvwrapper
-    $ sudo rm -rf ~/.cache/pip
-    $ echo "Edit ~/.bashrc"
-    $ export WORKON_HOME=$HOME/.virtualenvs
-    $ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    $ source /usr/local/bin/virtualenvwrapper.sh
-    $ mkvirtualenv cv -p python3
-    $ pip install numpy
-    
     $ echo "Procced with the installation"
     $ cd opencv-4.5.2
     $ mkdir build
@@ -82,7 +90,10 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
 	-D WITH_CUDA=ON \
 	-D BUILD_opencv_cudacodec=ON \
 	-D WITH_CUDNN=ON \
+	-D CUDNN_INCLUDE_DIR=/usr/local/cuda/include \
+	-D CUDNN_LIBRARY=/usr/local/cuda/lib64/libcudnn.so \
 	-D OPENCV_DNN_CUDA=ON \
+	-D CUDNN_VERSION=8.4 \
 	-D CUDA_ARCH_BIN=8.6 \
 	-D WITH_V4L=ON \
 	-D WITH_QT=OFF \
@@ -91,8 +102,10 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
 	-D OPENCV_GENERATE_PKGCONFIG=ON \
 	-D OPENCV_PC_FILE_NAME=opencv.pc \
 	-D OPENCV_ENABLE_NONFREE=ON \
-	-D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/cv/lib/python3.8/site-packages \
-	-D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
+	-D PYTHON_EXECUTABLE=/usr/bin/python3 \
+	-D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 \
+	-D OPENCV_PYTHON3_INSTALL_PATH=/usr/lib/python3/dist-packages \
+	-D OPENCV_PYTHON3_INSTALL_PATH=/usr/lib/python2.7/dist-packages \
 	-D OPENCV_EXTRA_MODULES_PATH=/home/martin/opencv_contrib-4.6.0/modules \
 	-D INSTALL_PYTHON_EXAMPLES=ON \
 	-D INSTALL_C_EXAMPLES=ON \
