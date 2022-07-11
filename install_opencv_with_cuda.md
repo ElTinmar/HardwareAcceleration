@@ -133,17 +133,4 @@ Include the libs in your environment
     
     $ sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
     $ sudo ldconfig
-    
-If you want to have available opencv python bindings in the system environment you should copy the created folder during the installation of OpenCV (* -D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/cv/lib/python3.8/site-packages *) into the *dist-packages* folder of the target python interpreter:
-
-    $ sudo cp -r ~/.virtualenvs/cv/lib/python3.8/site-packages/cv2 /usr/local/lib/python3.8/dist-packages
-   
-    $ echo "Modify config-3.8.py to point to the target directory" 
-    $ sudo nano /usr/local/lib/python3.8/dist-packages/cv2/config-3.8.py 
-    
-    ``` 
-	    PYTHON_EXTENSIONS_PATHS = [
-	    os.path.join('/usr/local/lib/python3.8/dist-packages/cv2', 'python-3.8')
-	    ] + PYTHON_EXTENSIONS_PATHS
-    ``` 
 
