@@ -66,6 +66,8 @@ Then, install required libraries:
     $ sudo apt-get install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
     ```
 
+TODO: compile ffmpeg with nvenc/nvdec/cuvid support and export to LD_LIBRARY_PATH
+
 We will now proceed with the installation (see the Qt flag that is disabled to do not have conflicts with Qt5.0).
 
     $ cd ~/Downloads
