@@ -13,8 +13,7 @@ https://developer.nvidia.com/cuda-downloads
 check https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
 
 export PATH=/usr/local/cuda-11.7/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64\
-                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
                          
 * NVIDIA CUDNN
 
