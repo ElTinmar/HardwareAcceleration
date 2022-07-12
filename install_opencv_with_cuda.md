@@ -148,6 +148,10 @@ $ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./co
  --enable-libx265 \
  --enable-libnpp \
  --enable-cuda-nvcc \
+ --enable-cuda \
+ --enable-cuvid \
+ --enable-nvdec \
+ --enable-nvenc \
  --extra-cflags=-I/usr/local/cuda/include \
  --extra-ldflags=-L/usr/local/cuda/lib64 \
  --extra-cflags=-I/usr/local/cuda-11.7/targets/x86_64-linux/include \
