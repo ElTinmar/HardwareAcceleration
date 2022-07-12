@@ -5,6 +5,7 @@ First of all install update and upgrade your system:
         $ sudo apt update
         $ sudo apt upgrade
    
+## NVIDIA
 
 * NVIDIA CUDA
 
@@ -24,6 +25,10 @@ https://developer.nvidia.com/rdp/cudnn-download
 https://developer.nvidia.com/nvidia-video-codec-sdk/download
 
 Then, install required libraries:
+
+## FFMPEG
+
+## OPENCV
 
 * Generic tools:
 
