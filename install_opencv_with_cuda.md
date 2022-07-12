@@ -235,7 +235,7 @@ $ unzip opencv.zip
 $ unzip opencv_contrib.zip
 
 $ echo "Procced with the installation"
-$ cd opencv-4.5.2
+$ cd opencv-4.6.0
 $ mkdir build
 $ cd build
 
