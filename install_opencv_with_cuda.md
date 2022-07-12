@@ -82,8 +82,15 @@ libvmaf
 	$ ninja -j 8
 	$ ninja install
 
+* NVENC/NVDEC (see https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gpu/)
+
+	$ cd ~/ffmpeg_sources
+	$ git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+	$ cd nv-codec-headers && sudo make install
+	
 * Download and compile ffmpeg
 
+	$ cd ~/ffmpeg_sources
 	$ git clone https://github.com/FFmpeg/FFmpeg.git 
 	$ cd FFmpeg
 	$ ./configure \
@@ -108,6 +115,10 @@ libvmaf
 		 --enable-libvpx \
 		 --enable-libx264 \
 		 --enable-libx265 \
+		 --enable-libnpp \
+		 --enable-cuda-nvcc \
+		 --extra-cflags=-I/usr/local/cuda/include \
+		 --extra-ldflags=-L/usr/local/cuda/lib64 \
 		 --enable-nonfree 
 	$ make -j 8
 	$ make install
