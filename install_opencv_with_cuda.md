@@ -31,12 +31,13 @@ https://developer.nvidia.com/nvidia-video-codec-sdk/download
 	
 	$ sudo apt-get -y install autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libgnutls28-dev libmp3lame-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev meson ninja-build pkg-config texinfo wget yasm zlib1g-dev  libunistring-dev libaom-dev nasm
 
+* Install relevant codecs libraries
+
 * Download and compile ffmpeg
 
-	$ git clone https://github.com/FFmpeg/FFmpeg.git
+	$ git clone https://github.com/FFmpeg/FFmpeg.git 
 	$ cd FFmpeg
 	
-
 ## OPENCV
 
 * Generic tools:
