@@ -119,7 +119,7 @@ $ git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
 $ cd nv-codec-headers && sudo make install
 ```
 
-* Download and compile ffmpeg
+* Download and compile ffmpeg: you need to use shared libraries (--enable-shared --enable-pic) to use with opencv
 
 ```
 $ cd ~/ffmpeg_sources
