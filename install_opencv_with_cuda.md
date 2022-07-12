@@ -121,8 +121,10 @@ libvmaf
 	 --extra-ldflags=-L/usr/local/cuda/lib64 \
 	 --extra-cflags=-I/usr/local/cuda-11.7/targets/x86_64-linux/include \
 	 --extra-ldflags=-L/usr/local/cuda-11.7/targets/x86_64-linux/lib \
-	 --enable-nonfree 
-	$ PATH="$HOME/bin:$PATH" make -j 8
+	 --enable-nonfree \
+	 --enable-shared \
+	 --enable-pic
+	$ PATH="$HOME/bin:$PATH" make -j 12
 	$ sudo make install
   
 ## OPENCV
