@@ -29,7 +29,7 @@ https://developer.nvidia.com/nvidia-video-codec-sdk/download
 
 * Install depencies
 	
-	$ sudo apt-get -y install autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libgnutls28-dev libmp3lame-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev meson ninja-build pkg-config texinfo wget yasm zlib1g-dev  libunistring-dev libaom-dev nasm
+	$ sudo apt-get -y install autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libgnutls28-dev libmp3lame-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev meson ninja-build pkg-config texinfo wget yasm zlib1g-dev  libunistring-dev libaom-dev nasm libunistring-dev
 
 * Install relevant codecs libraries
 
@@ -91,35 +91,35 @@ libvmaf
 * Download and compile ffmpeg
 
 	$ cd ~/ffmpeg_sources
-	$ git clone https://github.com/FFmpeg/FFmpeg.git 
+	$ git clone https://github.com/FFmpeg/FFmpeg.git
 	$ cd FFmpeg
 	$ ./configure \
-		 --prefix="$HOME/ffmpeg_build" \
-		 --pkg-config-flags="--static" \
-		 --extra-cflags="-I$HOME/ffmpeg_build/include" \
-		 --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
-		 --extra-libs="-lpthread -lm" \
-		 --ld="g++" \
-		 --bindir="$HOME/bin" \
-		 --enable-gpl \
-		 --enable-gnutls \
-		 --enable-libaom \
-		 --enable-libass \
-		 --enable-libfdk-aac \
-		 --enable-libfreetype \
-		 --enable-libmp3lame \
-		 --enable-libopus \
-		 --enable-libsvtav1 \
-		 --enable-libdav1d \
-		 --enable-libvorbis \
-		 --enable-libvpx \
-		 --enable-libx264 \
-		 --enable-libx265 \
-		 --enable-libnpp \
-		 --enable-cuda-nvcc \
-		 --extra-cflags=-I/usr/local/cuda/include \
-		 --extra-ldflags=-L/usr/local/cuda/lib64 \
-		 --enable-nonfree 
+	 --prefix="$HOME/ffmpeg_build" \
+	 --pkg-config-flags="--static" \
+	 --extra-cflags="-I$HOME/ffmpeg_build/include" \
+	 --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+	 --extra-libs="-lpthread -lm" \
+	 --ld="g++" \
+	 --bindir="$HOME/bin" \
+	 --enable-gpl \
+	 --enable-gnutls \
+	 --enable-libaom \
+	 --enable-libass \
+	 --enable-libfdk-aac \
+	 --enable-libfreetype \
+	 --enable-libmp3lame \
+	 --enable-libopus \
+	 --enable-libsvtav1 \
+	 --enable-libdav1d \
+	 --enable-libvorbis \
+	 --enable-libvpx \
+	 --enable-libx264 \
+	 --enable-libx265 \
+	 --enable-libnpp \
+	 --enable-cuda-nvcc \
+	 --extra-cflags=-I/usr/local/cuda/include \
+	 --extra-ldflags=-L/usr/local/cuda/lib64 \
+	 --enable-nonfree 
 	$ make -j 8
 	$ make install
   
