@@ -301,3 +301,23 @@ Include the libs in your environment
 $ sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 $ sudo ldconfig
 ```
+
+## How to use 
+
+``` python
+import os
+import cv2
+cv2.__version__
+
+use_gpu = True
+
+if use_gpu:
+	os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"]="video_codec;h264_cuvid"
+	
+ret = cv2.VideoCapture("input.avi", cv2.CAP_FFMPEG)
+while True:
+    x, y = ret.read()
+    if x:
+        continue
+    break
+```
