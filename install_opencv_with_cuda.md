@@ -40,7 +40,16 @@ https://developer.nvidia.com/nvidia-video-codec-sdk/download
 Prepare directories 
 
 	$ mkdir -p ~/ffmpeg_sources ~/bin ~/ffmpeg_build
-	
+
+libvpx
+
+	$ cd ~/ffmpeg_sources
+	$ git -C libvpx pull 2> /dev/null || git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
+	$ cd libvpx 
+	$ PATH="$HOME/bin:$PATH" ./configure  --enable-shared --enable-pic --prefix="$HOME/ffmpeg_build" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --as=yasm 
+	$ PATH="$HOME/bin:$PATH" make -j 12
+	$ make install
+
 libaom (AV1)
 
 	$ cd ~/ffmpeg_sources
@@ -233,8 +242,8 @@ Before the compilation you must check that CUDA has been enabled in the configur
 If it is fine proceed with the compilation (Use nproc to know the number of cpu cores):
     
     $ nproc
-    $ make -j8
-    $ sudo make install
+    $ make -j12
+    $ sudo make -j12 install
 
 Include the libs in your environment
     
