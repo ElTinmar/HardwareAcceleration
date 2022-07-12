@@ -93,7 +93,7 @@ libvmaf
 	$ cd ~/ffmpeg_sources
 	$ git clone https://github.com/FFmpeg/FFmpeg.git
 	$ cd FFmpeg
-	$ ./configure \
+	$ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
 	 --prefix="$HOME/ffmpeg_build" \
 	 --pkg-config-flags="--static" \
 	 --extra-cflags="-I$HOME/ffmpeg_build/include" \
@@ -119,9 +119,11 @@ libvmaf
 	 --enable-cuda-nvcc \
 	 --extra-cflags=-I/usr/local/cuda/include \
 	 --extra-ldflags=-L/usr/local/cuda/lib64 \
+	 --extra-cflags=-I/usr/local/cuda-11.7/targets/x86_64-linux/include \
+	 --extra-ldflags=-L/usr/local/cuda-11.7/targets/x86_64-linux/lib \
 	 --enable-nonfree 
-	$ make -j 8
-	$ make install
+	$ PATH="$HOME/bin:$PATH" make -j 8
+	$ sudo make install
   
 ## OPENCV
 
@@ -171,19 +173,23 @@ https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gp
 
 We will now proceed with the installation (see the Qt flag that is disabled to do not have conflicts with Qt5.0).
 
-    $ cd ~/Downloads
-    $ wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.6.0.zip
-    $ wget -O opencv_contrib.zip  https://github.com/opencv/opencv_contrib/archive/refs/tags/4.6.0.zip
+	$ cd ~/Downloads
+	$ wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.6.0.zip
+	$ wget -O opencv_contrib.zip  https://github.com/opencv/opencv_contrib/archive/refs/tags/4.6.0.zip
 
-    $ unzip opencv.zip
-    $ unzip opencv_contrib.zip
+	$ unzip opencv.zip
+	$ unzip opencv_contrib.zip
     
-    $ echo "Procced with the installation"
-    $ cd opencv-4.5.2
-    $ mkdir build
-    $ cd build
+	$ echo "Procced with the installation"
+	$ cd opencv-4.5.2
+	$ mkdir build
+	$ cd build
     
-    cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	$ export LD_LIBRARY_PATH=/ffmpeg_install_path/lib/
+	$ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_install_path/lib/pkgconfig
+	$ export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_install_path/lib/
+
+	$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
 	-D WITH_TBB=ON \
 	-D ENABLE_FAST_MATH=1 \
