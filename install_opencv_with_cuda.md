@@ -134,7 +134,12 @@ libvmaf
 	 --enable-pic
 	$ PATH="$HOME/bin:$PATH" make -j 12
 	$ sudo make install
-  
+
+* tell location of shared libraries to the system
+
+	$ sudo /bin/bash -c 'echo "$HOME/ffmpeg_build/lib" >> /etc/ld.so.conf.d/ffmpeg.conf'
+	$ sudo ldconfig
+	
 ## OPENCV
 
 * Generic tools:
