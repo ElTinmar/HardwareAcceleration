@@ -33,11 +33,49 @@ https://developer.nvidia.com/nvidia-video-codec-sdk/download
 
 * Install relevant codecs libraries
 
+	$ sudo apt-get install libx264-dev libx265-dev libnuma-dev libvpx-dev libfdk-aac-dev libopus-dev
+
+* Compile extra codecs 
+
+	$ mkdir -p ~/ffmpeg_sources ~/bin ~/ffmpeg_build
+	
+	$ cd ~/ffmpeg_sources && \
+	$ git -C libvpx pull 2> /dev/null || git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git && \
+	$ cd libvpx && \
+	$ PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --as=yasm && \
+	$ PATH="$HOME/bin:$PATH" make && \
+	$ make install
+
 * Download and compile ffmpeg
 
 	$ git clone https://github.com/FFmpeg/FFmpeg.git 
 	$ cd FFmpeg
-	
+	$ ./configure \
+  	$ --prefix="$HOME/ffmpeg_build" \
+  	$ --pkg-config-flags="--static" \
+  	$ --extra-cflags="-I$HOME/ffmpeg_build/include" \
+  	$ --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+	$ --extra-libs="-lpthread -lm" \
+  	$ --ld="g++" \
+  	$ --bindir="$HOME/bin" \
+	$ --enable-gpl \
+	$ --enable-gnutls \
+	$ --enable-libaom \
+	$ --enable-libass \
+	$ --enable-libfdk-aac \
+	$ --enable-libfreetype \
+	$ --enable-libmp3lame \
+	$ --enable-libopus \
+	$ --enable-libsvtav1 \
+	$ --enable-libdav1d \
+	$ --enable-libvorbis \
+	$ --enable-libvpx \
+	$ --enable-libx264 \
+	$ --enable-libx265 \
+	$ --enable-nonfree 
+	$ make -j 8
+	$ make install
+  
 ## OPENCV
 
 * Generic tools:
