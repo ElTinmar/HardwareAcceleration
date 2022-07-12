@@ -1,4 +1,4 @@
-# How to install OpenCV with CUDA and CUDNN in Ubuntu 20.04
+# How to install OpenCV with CUDA and CUDNN using FFMPEG compiled with NVENC/CUVID Ubuntu 20.04
 
 First of all install update and upgrade your system:
 
