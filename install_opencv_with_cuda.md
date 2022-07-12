@@ -180,10 +180,9 @@ $ sudo apt install build-essential cmake pkg-config unzip yasm git checkinstall
 $ sudo apt install libjpeg-dev libpng-dev libtiff-dev
 ``` 
 
-* Video/Audio Libs - FFMPEG, GSTREAMER, x264 and so on.
+* Video/Audio Libs -  GSTREAMER, x264 and so on.
 
 ```
-$ sudo apt install libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
 $ sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 $ sudo apt install libxvidcore-dev x264 libx264-dev libfaac-dev libmp3lame-dev libtheora-dev 
 $ sudo apt install libfaac-dev libmp3lame-dev libvorbis-dev
