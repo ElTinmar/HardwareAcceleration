@@ -3,7 +3,7 @@ prev_frame_time = 0
 curr_frame_time = 0
 
 figure
-h = imagesc(zeros(mov.Height,mov.Width,3));
+h = imshow(zeros(mov.Height,mov.Width,3));
 
 tic
 while mov.hasFrame
