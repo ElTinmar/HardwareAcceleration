@@ -342,3 +342,7 @@ while True:
 cap.release()
 cv2.destroyAllWindows():
 ```
+
+```
+python2.7 -m cProfile -s tottime test_opencv_hw.py
+```
