@@ -243,9 +243,9 @@ $ cd opencv-4.6.0
 $ mkdir build
 $ cd build
 
-$ export LD_LIBRARY_PATH=/ffmpeg_build/lib/
-$ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_build/lib/pkgconfig
-$ export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_build/lib/
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ffmpeg_build/lib/
+$ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/ffmpeg_build/lib/pkgconfig
+$ export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:$HOME/ffmpeg_build/lib/
 
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -254,6 +254,7 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D CUDA_FAST_MATH=1 \
 -D WITH_CUBLAS=1 \
 -D WITH_CUDA=ON \
+-D WITH_FFMPEG=ON \
 -D BUILD_opencv_cudacodec=ON \
 -D WITH_CUDNN=ON \
 -D CUDNN_INCLUDE_DIR=/usr/local/cuda/include \
