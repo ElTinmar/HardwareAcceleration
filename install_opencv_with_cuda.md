@@ -243,9 +243,9 @@ $ cd opencv-4.6.0
 $ mkdir build
 $ cd build
 
-$ export LD_LIBRARY_PATH=/ffmpeg_install_path/lib/
-$ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_install_path/lib/pkgconfig
-$ export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_install_path/lib/
+$ export LD_LIBRARY_PATH=/ffmpeg_build/lib/
+$ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_build/lib/pkgconfig
+$ export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_build/lib/
 
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D CMAKE_INSTALL_PREFIX=/usr/local \
