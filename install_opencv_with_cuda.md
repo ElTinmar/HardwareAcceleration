@@ -120,8 +120,14 @@ $ cd nv-codec-headers && sudo make install
 ```
 
 * Download and compile ffmpeg: you need to use shared libraries (--enable-shared --enable-pic) to use with opencv
+* 
+NOTE:  
+When the configure script of FFmpeg 4 checks nvcc, it uses compute  
+capability of 30 (3.0) by default. CUDA 11, however, does not support  
+compute capability 30.  
 
 ```
+$ export ccap=75
 $ cd ~/ffmpeg_sources
 $ git clone https://github.com/FFmpeg/FFmpeg.git
 $ cd FFmpeg
@@ -130,6 +136,7 @@ $ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./co
  --extra-cflags="-I$HOME/ffmpeg_build/include" \
  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
  --extra-libs="-lpthread -lm" \
+ --nvccflags="-gencode arch=compute_${ccap},code=sm_${ccap} -O2" \
  --ld="g++" \
  --bindir="$HOME/bin" \
  --enable-gpl \
