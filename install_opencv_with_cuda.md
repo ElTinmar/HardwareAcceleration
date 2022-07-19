@@ -127,7 +127,7 @@ capability of 30 (3.0) by default. CUDA 11, however, does not support
 compute capability 30.  
 
 ```
-$ export ccap=75
+$ export ccap=86
 $ cd ~/ffmpeg_sources
 $ git clone https://github.com/FFmpeg/FFmpeg.git
 $ cd FFmpeg
