@@ -263,6 +263,7 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D WITH_CUDA=ON \
 -D WITH_FFMPEG=ON \
 -D BUILD_opencv_cudacodec=ON \
+-D CUDA_nvcuvid_LIBRARY=/usr/local/cuda/lib64/stubs/libnvcuvid.so
 -D WITH_CUDNN=ON \
 -D CUDNN_INCLUDE_DIR=/usr/local/cuda/include \
 -D CUDNN_LIBRARY=/usr/local/cuda/lib64/libcudnn.so \
