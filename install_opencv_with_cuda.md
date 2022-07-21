@@ -292,7 +292,7 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 To set the correct value of CUDA_ARCH_BIN you must visit https://developer.nvidia.com/cuda-gpus and find the Compute Capability CC of your graphic card)
 
-Before the compilation you must check that CUDA has been enabled in the configuration summary printed on the screen. (If you have problems with the CUDA Architecture go to the end of the document).
+Before the compilation you must check that CUDA and NVCUVID have been enabled in the configuration summary printed on the screen.
 
 ```
 --   NVIDIA CUDA:                   YES (ver 11.7, CUFFT CUBLAS NVCUVID FAST_MATH)
