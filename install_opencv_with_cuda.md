@@ -235,6 +235,8 @@ $ sudo apt-get install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 
 We will now proceed with the installation (see the Qt flag that is disabled to do not have conflicts with Qt5.0).
 
+copy cuviddec.h, nvcuvid.h and nvEncodeAPI.h from the Video Codec SDK to /usr/local/cuda-11.7/include/ or /usr/local/cuda/include (Not sure which)
+
 NOT SURE IF THIS IS NECESSARY. For some reason LIBAVCODEC_VERSION_INT is not properly detected, comment out the #if (LIBAVCODEC_VERSION_INT <= AV_VERSION_INT(54, 51, 100)) block in opencv-4.6.0/modules/videoio/src/ffmpeg_codecs.hpp
 
 ```
