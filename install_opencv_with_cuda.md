@@ -295,11 +295,11 @@ To set the correct value of CUDA_ARCH_BIN you must visit https://developer.nvidi
 Before the compilation you must check that CUDA has been enabled in the configuration summary printed on the screen. (If you have problems with the CUDA Architecture go to the end of the document).
 
 ```
---   NVIDIA CUDA:                   YES (ver 11.2, CUFFT CUBLAS FAST_MATH)
---     NVIDIA GPU arch:             75
+--   NVIDIA CUDA:                   YES (ver 11.7, CUFFT CUBLAS NVCUVID FAST_MATH)
+--     NVIDIA GPU arch:             86
 --     NVIDIA PTX archs:
 -- 
---   cuDNN:                         YES (ver 8.2.0)
+--   cuDNN:                         YES (ver 8.4)
 
 ```
 
