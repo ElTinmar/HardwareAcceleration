@@ -239,6 +239,11 @@ copy cuviddec.h, nvcuvid.h and nvEncodeAPI.h from the Video Codec SDK to /usr/lo
 
 NOT SURE IF THIS IS NECESSARY. For some reason LIBAVCODEC_VERSION_INT is not properly detected, comment out the #if (LIBAVCODEC_VERSION_INT <= AV_VERSION_INT(54, 51, 100)) block in opencv-4.6.0/modules/videoio/src/ffmpeg_codecs.hpp
 
+Add to opencv_contrib-4.6.0/modules/cudacodec/src/ffmpeg_video_source.cpp
+```
+case CV_FOURCC_MACRO('X', '2', '6', '4'): return H264;
+```
+
 ```
 $ cd ~/Downloads
 $ wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.6.0.zip
